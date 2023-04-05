@@ -1,0 +1,20 @@
+@import "design/_fonts";
+
+@import "elements/_inputs";
+@import "elements/_links";
+
+@import "primeicons/primeicons.css";
+
+* {
+    box-sizing: border-box;
+}
+
+html{
+    min-height: 100%;
+}
+
+body{
+    margin: 0;
+    height: 100%;
+    min-height: 100vh;
+}

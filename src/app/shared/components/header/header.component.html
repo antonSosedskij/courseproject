@@ -1,0 +1,34 @@
+<div class="container flex justify-content-between align-items-center">
+    <div class="container__logo logo">
+      <a href="">
+        <span class="logo_blue">Ad</span>
+        <span class="logo_black">board+</span>
+      </a>
+    </div>
+    <ng-container *ngIf="!isLoggedIn; else authtorized">
+      <div class="">
+          <p-button label="Вход" styleClass="p-button-outlined mr-2 px-5" class="sign-in"></p-button>
+          <p-button label="Регистрация" class="sign-up"></p-button>
+      </div>
+    </ng-container>
+  </div>
+
+
+  <ng-template #authtorized>
+    <div class="flex align-items-center">
+        
+        <p-menu #menu [popup]="true" [model]="items" class="menu"></p-menu>
+        <button pButton (click)="menu.toggle($event)" class="p-button-text user-button" style="color:#000">
+            <i class="pi pi-user"></i>
+            <span>
+                Антон
+                <i class="pi pi-chevron-down"></i>
+            </span>
+        </button>
+        <button pButton class="new-ad-button ">
+            <span>Новое объявление</span>
+            <i class="pi pi-plus"></i>
+        </button>
+    </div>
+  </ng-template>
+  

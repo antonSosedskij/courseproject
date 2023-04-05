@@ -1,0 +1,60 @@
+.container{
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 12px 8px;
+}
+
+
+.logo{
+
+    & a{
+        & *{
+            font-size: 24px;
+            font-weight: 700;
+        }
+    }
+
+    &_black{
+        color: #000;
+    }
+
+    &_blue{
+        color: #3184fe;
+    }
+
+}
+
+
+.sign-up::ng-deep,
+.sign-in::ng-deep{
+    .p-button-label{
+        font-weight: 500;
+    }
+
+    .p-button{
+        padding: 12px 15px;
+    }  
+}
+
+.new-ad-button{
+    padding: 6px 12px;
+}
+
+.pi-user{
+    margin-right: 5px;
+}
+
+.pi-chevron-down,
+.pi-plus{
+    margin-left: 4px;
+    font-size: 12px;
+}
+
+.user-button{
+    margin-right: 10px;
+    padding: 0;
+    color: #000;
+    display: flex;
+    align-items: center;
+
+}
