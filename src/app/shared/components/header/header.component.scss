@@ -36,12 +36,24 @@
     }  
 }
 
+.menu::ng-deep{
+
+    .p-menuitem-text{
+        font-size: 14px;
+        white-space: nowrap;
+    }
+
+    .p-menu{
+        width: 160px;
+    }
+}
+
 .new-ad-button{
     padding: 6px 12px;
 }
 
 .pi-user{
-    margin-right: 5px;
+    margin-right: 8px;
 }
 
 .pi-chevron-down,
@@ -51,10 +63,11 @@
 }
 
 .user-button{
-    margin-right: 10px;
+    margin-right: 15px;
     padding: 0;
     color: #000;
     display: flex;
     align-items: center;
 
 }
+
