@@ -1,0 +1,62 @@
+.container{
+    padding: 5px 10px 0;
+
+    &__content{
+        display: flex;
+    }
+}
+
+.header{
+
+    &__breadcrumbs::ng-deep{
+        .p-breadcrumb{
+            border: none;
+            padding: 0;
+        }
+
+        .p-breadcrumb-chevron, 
+        .p-menuitem-text{
+            font-size: 14px;
+        }
+    }
+
+    &__info{
+        display: flex;
+        align-items: center;
+
+
+        & h1, 
+        & p{
+            font-size: 32px;
+            margin: 10px 30px 10px 0;
+        }
+    }
+
+}
+
+.info{
+
+    padding-left: 10px;
+
+
+    &__description,
+    &__adress{
+        width: 100%;
+        & p {
+            
+            
+            &:first-child{
+                font-size: 20px;
+                font-weight: 700;
+                margin: 0;
+            }
+
+            &:last-child{
+                line-height: 25px;
+            }
+
+        }
+
+    }
+
+}
