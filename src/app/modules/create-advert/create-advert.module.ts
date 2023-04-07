@@ -1,12 +1,17 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { CreateAdvertComponent } from './pages/create-advert/create-advert.component';
+import { CreateAdvertRoutingModule } from './create-advert-routing.module';
 
 
 
 @NgModule({
-  declarations: [],
+  declarations: [
+    CreateAdvertComponent
+  ],
   imports: [
-    CommonModule
+    CommonModule,
+    CreateAdvertRoutingModule
   ]
 })
 export class CreateAdvertModule { }
