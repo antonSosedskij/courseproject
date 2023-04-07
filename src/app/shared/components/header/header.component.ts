@@ -18,10 +18,13 @@ export class HeaderComponent implements OnInit {
   ngOnInit(){
     this.items = [
       {
-          label: 'Мои объявления'
+          label: 'Мои объявления',
+          routerLink: '/my-adverts'
+
       },
       {
-          label: 'Настройки'
+          label: 'Настройки',
+          routerLink: '/settings'
       }
   ];
   }
