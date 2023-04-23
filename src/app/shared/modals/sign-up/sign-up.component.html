@@ -1,0 +1,10 @@
+<div class="container">
+    <form [formGroup]="signUpForm" class="container__form form flex flex-column">
+        <div class="form__data flex flex-column">
+            <input type="tel" placeholder="Телефон" formControlName="phone">
+            <input type="text" placeholder="Имя" formControlName="name">
+            <input type="password" placeholder="Пароль" formControlName="password">
+        </div>
+        <p-button label="Зарегистрироваться"></p-button>
+    </form>
+</div>

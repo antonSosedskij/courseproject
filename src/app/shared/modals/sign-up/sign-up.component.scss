@@ -1,0 +1,17 @@
+.form{
+    &__data{
+        & input{
+            margin-top: 8px;
+            margin-bottom: 8px;
+
+            padding: 12px;
+            
+            border-color: #CBD5E1;
+            border-radius: 5px;
+
+            &:focus{
+                outline: none;
+            }
+        }
+    }
+}
