@@ -1,0 +1,16 @@
+<div class="container">
+    <form [formGroup]="signInForm" class="container__form form flex flex-column">
+        <div class="form__data flex flex-column">
+            <input type="tel" placeholder="Телефон" formControlName="email">
+            <input type="password" placeholder="Пароль" formControlName="password">
+        </div>
+        <div class="flex justify-content-between align-items-center">
+            <div class="flex">
+                <input type="checkbox">
+                <p>Запомнить меня</p>
+            </div>
+            <a href=""><span>Забыли пароль?</span></a>
+        </div>
+        <p-button label="Войти"></p-button>
+    </form>
+</div>
