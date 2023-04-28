@@ -60,3 +60,15 @@
     }
 
 }
+
+.phone-button{
+    padding: 10px 25px;
+
+    & .pi-phone{
+        margin-right: 10px;
+    }
+
+    & span{
+        font-weight: 500;
+    }
+}

@@ -1,7 +1,8 @@
-import { Component, NgModule } from '@angular/core';
+import { Component, Input, NgModule } from '@angular/core';
 import { BreadcrumbModule } from 'primeng/breadcrumb';
 import { GalleryModule } from '../gallery/gallery.component';
 import { ButtonModule } from 'primeng/button';
+import { AdvertInfoDto } from 'src/app/core/interfaces/advert-info';
 
 @Component({
   selector: 'app-view-advert',
@@ -9,6 +10,9 @@ import { ButtonModule } from 'primeng/button';
   styleUrls: ['./view-advert.component.scss']
 })
 export class ViewAdvertComponent {
+
+  @Input() advert! : AdvertInfoDto;
+
   breadcrumbItems = [{
     label: 'Севастополь',
   },

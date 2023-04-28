@@ -4,8 +4,8 @@
             <p-breadcrumb [model]="breadcrumbItems"></p-breadcrumb>
         </div>
         <div class="header__info">
-            <h1>Гитара фендер</h1>
-            <p>20000₽</p>
+            <h1>{{advert.name}}</h1>
+            <p>{{advert.price}}₽</p>
         </div>
     </div>
     <div class="container__content content grid">
@@ -16,13 +16,16 @@
             <div class="content__info info">
                 <div class="info__description ">
                     <p>Описание</p>
-                    <p>Продается легендарная гитара Fender, 2010 г.в.. Состояние  хорошее + чехол в комплекте.</p>
+                    <p>{{advert.description}}</p>
                 </div>
                 <div class="info__adress">
                     <p>Адрес</p>
-                    <p>Севастополь, ул. Генерала Лебедя 6, кв 66</p>
+                    <p>{{advert.address}}</p>
                 </div>
-                <p-button icon="pi pi-phone" label="Показать телефон"></p-button>
+                <button pButton class="phone-button">
+                    <i class="pi pi-phone"></i>
+                    <span>Показать телефон</span>
+                </button>
             </div>
         </div>
     </div>
