@@ -1,4 +1,5 @@
 import { Component, Input, NgModule } from '@angular/core';
+import { AdvertShortInfoDto } from 'src/app/core/interfaces/advert-short-info';
 
 @Component({
   selector: 'app-advert-card',
@@ -6,7 +7,7 @@ import { Component, Input, NgModule } from '@angular/core';
   styleUrls: ['./advert-card.component.scss']
 })
 export class AdvertCardComponent {
-  // @Input() advert: Advert
+  @Input() advert!: AdvertShortInfoDto;
 }
 
 
