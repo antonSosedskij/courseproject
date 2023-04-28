@@ -1,12 +1,11 @@
 <div class="container">
     <h1>Рекомендации</h1>
     <div class="container__card grid">
-        <app-advert-card [routerLink]="['/view', 3]" class="xl:col-6 lg:col-12"></app-advert-card>
-        <app-advert-card class="xl:col-6 lg:col-12"></app-advert-card>
-        <app-advert-card class="xl:col-6 lg:col-12"></app-advert-card>
-        <app-advert-card class="xl:col-6 lg:col-12"></app-advert-card>
-        <app-advert-card class="xl:col-6 lg:col-12"></app-advert-card>
-        <app-advert-card class="xl:col-6 lg:col-12"></app-advert-card>
-        <app-advert-card class="xl:col-6 lg:col-12"></app-advert-card>
+        <app-advert-card
+         [routerLink]="['/view', advert.id]"
+         [advert]="advert" 
+         class="xl:col-6 lg:col-12" 
+         *ngFor="let advert of adverts"
+         ></app-advert-card>
     </div>
 </div>
