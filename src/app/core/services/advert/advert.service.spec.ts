@@ -1,12 +1,17 @@
 import { TestBed } from '@angular/core/testing';
 
 import { AdvertService } from './advert.service';
+import { HttpClientModule } from '@angular/common/http';
 
 describe('AdvertService', () => {
   let service: AdvertService;
 
   beforeEach(() => {
-    TestBed.configureTestingModule({});
+    TestBed.configureTestingModule({
+      imports: [
+        HttpClientModule
+      ]
+    });
     service = TestBed.inject(AdvertService);
   });
 

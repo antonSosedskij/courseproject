@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { GalleryComponent } from './gallery.component';
+import { GalleriaModule} from 'primeng/galleria';
 
 describe('GalleryComponent', () => {
   let component: GalleryComponent;
@@ -8,7 +9,10 @@ describe('GalleryComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ GalleryComponent ]
+      declarations: [ GalleryComponent ],
+      imports: [
+        GalleriaModule,
+      ]
     })
     .compileComponents();
 

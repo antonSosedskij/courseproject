@@ -1,6 +1,9 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ViewAdvertComponent } from './view-advert.component';
+import { BreadcrumbModule } from 'primeng/breadcrumb';
+import { ButtonModule } from 'primeng/button';
+import { GalleryModule } from '../gallery/gallery.component';
 
 describe('ViewAdvertComponent', () => {
   let component: ViewAdvertComponent;
@@ -8,7 +11,12 @@ describe('ViewAdvertComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ViewAdvertComponent ]
+      declarations: [ ViewAdvertComponent ],
+      imports: [
+        BreadcrumbModule,
+        ButtonModule,
+        GalleryModule,
+      ]
     })
     .compileComponents();
 

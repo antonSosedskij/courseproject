@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { MyAdvertViewComponent } from './my-advert-view.component';
+import { ViewAdvertModule } from 'src/app/shared/components/view-advert/view-advert.component';
 
 describe('MyAdvertViewComponent', () => {
   let component: MyAdvertViewComponent;
@@ -8,7 +9,10 @@ describe('MyAdvertViewComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ MyAdvertViewComponent ]
+      declarations: [ MyAdvertViewComponent ],
+      imports: [
+        ViewAdvertModule    
+      ]
     })
     .compileComponents();
 

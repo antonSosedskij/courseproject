@@ -1,6 +1,10 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { CreateAdvertComponent } from './create-advert.component';
+import { InputTextModule } from 'primeng/inputtext';
+import { InputNumberModule } from 'primeng/inputnumber';
+import { ButtonModule } from 'primeng/button';
+
 
 describe('CreateAdvertComponent', () => {
   let component: CreateAdvertComponent;
@@ -8,7 +12,13 @@ describe('CreateAdvertComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ CreateAdvertComponent ]
+      declarations: [ CreateAdvertComponent ],
+      imports: [
+        InputTextModule,
+        InputNumberModule,
+        ButtonModule,
+        // ReactiveFormsModule
+      ]
     })
     .compileComponents();
 
