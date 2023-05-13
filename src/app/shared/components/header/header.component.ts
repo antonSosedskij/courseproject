@@ -1,11 +1,14 @@
 import { NgIf } from '@angular/common';
-import { Component, NgModule, OnInit } from '@angular/core';
+import { Component, NgModule, OnDestroy, OnInit } from '@angular/core';
 import { MenuItem } from 'primeng/api';
 import { ButtonModule } from 'primeng/button';
 import { DialogService, DynamicDialogRef } from 'primeng/dynamicdialog';
 import { MenuModule } from 'primeng/menu';
 import { SignInComponent } from '../../modals/sign-in/sign-in.component';
 import { SignUpComponent } from '../../modals/sign-up/sign-up.component';
+import { BehaviorSubject } from 'rxjs';
+import { Router } from '@angular/router';
+import { AuthService } from 'src/app/core/services/auth/auth.service';
 
 @Component({
   selector: 'app-header',
@@ -15,45 +18,57 @@ import { SignUpComponent } from '../../modals/sign-up/sign-up.component';
 export class HeaderComponent implements OnInit {
 
   ref!: DynamicDialogRef;
-  isLoggedIn: boolean = true;
 
-  items!: MenuItem[];
+  items: MenuItem[] = [
+    {
+        label: 'Мои объявления',
+        routerLink: '/my-adverts'
 
-  constructor(public dialogService: DialogService) {}
+    },
+    {
+        label: 'Настройки',
+        routerLink: '/settings'
+    },
+    {
+      label: 'Выйти',
+      command: this.exit
+    },
+];
+
+  constructor(
+    public dialogService: DialogService, 
+    public auth: AuthService, 
+    private router: Router
+    ) {}
 
   ngOnInit(){
-    this.items = [
-      {
-          label: 'Мои объявления',
-          routerLink: '/my-adverts'
-
-      },
-      {
-          label: 'Настройки',
-          routerLink: '/settings'
-      }
-  ];
+    
   }
 
   showSignIn() {
     this.ref = this.dialogService.open(SignInComponent, { 
       header: 'Авторизация',
-      width: '30%',
+      width: '40%',
       contentStyle: { overflow: 'auto' },
       baseZIndex: 10000,
     });
-    console.log(this.ref);
   }
 
   showSignUp(){
     this.ref = this.dialogService.open(SignUpComponent, { 
       header: 'Регистрация',
-      width: '30%',
+      width: '40%',
       contentStyle: { overflow: 'auto' },
       baseZIndex: 10000,
     });
   }
 
+  exit(){
+    localStorage.removeItem('token');
+    window.location.href = '';
+  }
+
+  
 
 }
 
@@ -71,3 +86,4 @@ export class HeaderComponent implements OnInit {
 export class HeaderComponentModule{
 
 }
+

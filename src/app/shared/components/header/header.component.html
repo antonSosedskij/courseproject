@@ -5,7 +5,7 @@
         <span class="logo_black">board+</span>
       </a>
     </div>
-    <ng-container *ngIf="!isLoggedIn; else authtorized">
+    <ng-container *ngIf="!auth.isAuthenticated(); else authtorized">
       <div class="">
           <p-button label="Вход" styleClass="p-button-outlined mr-2 px-5" class="sign-in" (click)="showSignIn()"></p-button>
           <p-button label="Регистрация" class="sign-up" (click)="showSignUp()"></p-button>
