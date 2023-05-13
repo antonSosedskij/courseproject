@@ -6,9 +6,8 @@
     display: grid;
     grid-template-columns: 1fr 3fr;
 
-    width: 100%;
-    height: 100%;
-    margin-bottom: 15px;
+    height: 250px;
+    margin-bottom: 10px;
     margin-right: 20px;
 
     padding-right: 10px;
@@ -40,7 +39,6 @@
     &__content{
         display: flex;
         flex-direction: column;
-        justify-content: space-between;
 
         margin-left: 15px;
     }
@@ -49,11 +47,14 @@
 
 .content{
 
+    display: flex;
+    justify-content: space-around;
+
     &__header{
         display: flex;
         flex-direction: column;
-
         margin-top: 10px;
+
     }
 
     &__info{
@@ -72,9 +73,10 @@
     &__category, 
     &__adress{
 
-    
+        margin-bottom: 5px;
 
         & p{
+            margin: 8px 0;
 
             &:first-child{
                 color: #b4b4b4;
@@ -95,13 +97,12 @@
 
     &__main{
         display: flex;
-        align-items: center;
-        justify-content: space-between;
+        flex-direction: column;
         
         & h1{
-            font-size: 20px;
+            font-size: 18px;
             font-weight: 600;
-            margin: 0;
+            margin: 0 0 10px 0;
             color: #3184FE;
         }
 
@@ -116,6 +117,7 @@
     &__date{
         font-size: 12px;
         color: #b4b4b4;
+        margin-top: 5px;
     }
 
 }
