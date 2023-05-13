@@ -1,10 +1,19 @@
 <div class="container">
-    <form [formGroup]="signUpForm" class="container__form form flex flex-column">
+    <form [formGroup]="signUpForm" (ngSubmit)="onSubmit(signUpForm)" class="container__form form flex flex-column">
         <div class="form__data flex flex-column">
-            <input type="tel" placeholder="Телефон" formControlName="phone">
-            <input type="text" placeholder="Имя" formControlName="name">
-            <input type="password" placeholder="Пароль" formControlName="password">
+            <input type="tel" placeholder="Введите логин" formControlName="login">
+            <small *ngIf="(signUpForm.controls['login'].touched && signUpForm.controls['login'].invalid)">
+                Укажите логин (не менее 8 символов)
+            </small>
+            <input type="text" placeholder="Введите email" formControlName="email">
+            <small *ngIf="(signUpForm.controls['email'].touched && signUpForm.controls['email'].invalid)">
+                Введите email
+            </small>
+            <input type="password" placeholder="Введите пароль" formControlName="password">
+            <small *ngIf="(signUpForm.controls['password'].touched && signUpForm.controls['password'].invalid)">
+                Укажите пароль(не менее 8 символов)
+            </small>
         </div>
-        <p-button label="Зарегистрироваться"></p-button>
+        <p-button type="submit" [disabled]="signUpForm.invalid" label="Зарегистрироваться"></p-button>
     </form>
 </div>

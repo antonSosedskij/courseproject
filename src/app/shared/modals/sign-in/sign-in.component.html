@@ -1,8 +1,14 @@
 <div class="container">
-    <form [formGroup]="signInForm" class="container__form form flex flex-column">
+    <form [formGroup]="signInForm" (ngSubmit)="onSubmit(signInForm)" class="container__form form flex flex-column">
         <div class="form__data flex flex-column">
-            <input type="tel" placeholder="Телефон" formControlName="email">
+            <input type="text" placeholder="Логин" formControlName="login">
+            <small *ngIf="signInForm.controls['login'].touched && signInForm.controls['login'].invalid">
+                Введите логин
+            </small>
             <input type="password" placeholder="Пароль" formControlName="password">
+            <small *ngIf="signInForm.controls['password'].touched && signInForm.controls['password'].hasError('required')">
+                Введите пароль
+            </small>
         </div>
         <div class="flex justify-content-between align-items-center">
             <div class="flex">
@@ -11,6 +17,6 @@
             </div>
             <a href=""><span>Забыли пароль?</span></a>
         </div>
-        <p-button label="Войти"></p-button>
+        <p-button type="submit" label="Войти" [disabled]="signInForm.invalid"></p-button>
     </form>
 </div>

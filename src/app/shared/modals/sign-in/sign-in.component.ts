@@ -1,7 +1,10 @@
 import { Component, NgModule } from '@angular/core';
-import { FormControl, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { DynamicDialogConfig, DynamicDialogModule, DynamicDialogRef } from 'primeng/dynamicdialog';
 import { ButtonModule } from 'primeng/button';
+import { AuthService } from 'src/app/core/services/auth/auth.service';
+import { Router } from '@angular/router';
+import { NgIf } from '@angular/common';
 
 @Component({
   selector: 'app-sign-in',
@@ -11,14 +14,34 @@ import { ButtonModule } from 'primeng/button';
 export class SignInComponent {
   
   signInForm = new FormGroup({
-    email: new FormControl(''),
-    password: new FormControl('')
+    login: new FormControl('',
+    Validators.required
+    ),
+    password: new FormControl('',
+    Validators.required)
   }); 
 
   constructor(
+    private auth: AuthService,
+    private router: Router,
     public config: DynamicDialogConfig,
-    public ref: DynamicDialogRef
+    public ref: DynamicDialogRef,
   ) {}
+
+  onSubmit(form: FormGroup){
+    let account = {
+      login: form.value.login,
+      password: form.value.password
+    }
+
+    this.auth.signIn(account).subscribe((data) => {
+      localStorage.setItem("token", data);
+      this.ref.close();
+      this.router.navigate(['']);
+    });
+    
+
+  }
 
 }
 
@@ -30,7 +53,8 @@ export class SignInComponent {
     FormsModule,
     ReactiveFormsModule,
     DynamicDialogModule,
-    ButtonModule
+    ButtonModule,
+    NgIf
   ],
 }
 )
