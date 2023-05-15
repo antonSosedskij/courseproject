@@ -6,9 +6,10 @@ import { AppComponent } from './app.component';
 import { HeaderComponentModule } from './shared/components/header/header.component';
 import { SearchComponentModule, SearchComponent } from './shared/components/search/search.component';
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
-import { AdvertCardModule } from './shared/components/advert-card/advert-card.component';
 import { AdvertsModule } from './modules/adverts/adverts.module';
-import { AdvertsRoutingModule } from './modules/adverts/adverts-routing.module';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+import { TokenInterceptor } from './core/interceptor/token/token.interceptor';
+
 
 
 @NgModule({
@@ -19,12 +20,18 @@ import { AdvertsRoutingModule } from './modules/adverts/adverts-routing.module';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    HttpClientModule,
     HeaderComponentModule,
     SearchComponentModule,
-    AdvertCardModule,
-    AdvertsModule
+    AdvertsModule,
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      multi: true,
+      useClass: TokenInterceptor
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
