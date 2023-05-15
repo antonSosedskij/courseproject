@@ -7,6 +7,7 @@ import { InputNumberModule } from 'primeng/inputnumber';
 import { ButtonModule } from 'primeng/button';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FileUploadComponent } from './components/file-upload/file-upload.component';
+import { MessageService } from 'primeng/api';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,9 @@ import { FileUploadComponent } from './components/file-upload/file-upload.compon
     InputNumberModule,
     ButtonModule,
     ReactiveFormsModule
+  ],
+  providers: [
+    MessageService
   ]
 })
 export class CreateAdvertModule { }

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Route, Router } from '@angular/router';
+import { MessageService } from 'primeng/api';
 import { AdvertCreateDto } from 'src/app/core/interfaces/advert-create';
 import { AdvertInfoDto } from 'src/app/core/interfaces/advert-info';
 import { CategoryShortInfoDto } from 'src/app/core/interfaces/category-short-info';
@@ -25,7 +26,8 @@ export class CreateAdvertComponent implements OnInit{
       Validators.minLength(5)
     ]),
     description: new FormControl('', [
-      Validators.required
+      Validators.required, 
+      Validators.minLength(8)
     ]),
     address: new FormControl('', [
       Validators.required
@@ -39,7 +41,8 @@ export class CreateAdvertComponent implements OnInit{
   constructor(
     private categoryService: CategoryService,
     private advertService: AdvertService,
-    private router: Router
+    private router: Router,
+    private message: MessageService
     ){}
 
   ngOnInit(): void {
@@ -50,20 +53,19 @@ export class CreateAdvertComponent implements OnInit{
 
   onSubmit(form: FormGroup){
     let advert: AdvertCreateDto = {
-      categoryId: form.value.category_id,
+      categoryId: form.value.categoryId,
       name: form.value.name,
       description: form.value.description,
-      imageUrl: "https://www.allcarz.ru/wp-content/uploads/2012/11/foto-astra-h-sedan_01.jpg",
+      imageUrl: "",
       price: form.value.price,
       address: form.value.address,
     }
     this.advertService.createAdvert(advert).subscribe(() => {
-      console.log(advert);
       
+      this.message.add({severity: 'success', summary: 'Успешно', detail: 'Объявление создано'})
       this.router.navigate(['']);
-  });
+    });
 
-    
   }
 
 }
