@@ -1,1 +1,47 @@
-<p>settings works!</p>
+<div class="container">
+    <h1>Настройки</h1>
+
+<form class="form form__info" [formGroup]="infoUpdateForm">
+    <div class="top-row">
+        <div class="form__input">
+            <label for="">Имя</label>
+            <input type="text" pInputText formControlName="login">
+            <small *ngIf="infoUpdateForm.controls['login'].touched && infoUpdateForm.controls['login'].invalid">
+                Введите новый логин (не менее 8 символов)
+            </small>
+        </div>
+        <div class="form__input">
+            <label for="">Номер телефона</label>
+            <input type="tel" pInputText formControlName="phone">
+            <small *ngIf="infoUpdateForm.controls['phone'].touched && infoUpdateForm.controls['phone'].invalid">
+                Введите номер телефона
+            </small>
+        </div>
+    </div>
+   <div class="form__input">
+        <label for="">Адрес</label>
+        <input type="text" pInputText formControlName="address">
+        <small *ngIf="infoUpdateForm.controls['address'].touched && infoUpdateForm.controls['address'].invalid">
+            Введите адрес
+        </small>
+   </div>
+    <button disabled type="submit" [disabled]="infoUpdateForm.invalid">Сохранить</button>
+</form>
+
+<form class="form form__reset" [formGroup]="passwordResetForm">
+    <div class="form__input">
+        <label>Текущий пароль</label>
+        <input pInputText type="text" formControlName="password">
+        <small *ngIf="passwordResetForm.controls['password'].touched && passwordResetForm.controls['password'].invalid"></small>
+    </div>
+    <div class="form__input">
+        <label>Новый пароль</label>
+        <input pInputText type="text" formControlName="newPassword">
+        <small *ngIf="passwordResetForm.controls['newPassword'].touched && passwordResetForm.controls['newPassword'].invalid">
+            Введите новый пароль (не менее 8 символов)
+        </small>
+    </div>
+    <button (click)="passwordReset()" type="submit">Сменить пароль</button>
+</form>
+
+</div>
