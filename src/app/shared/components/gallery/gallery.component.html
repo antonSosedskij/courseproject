@@ -6,12 +6,12 @@
     [containerStyle]="{ 'max-width': '640px' }" 
     [showThumbnailNavigators]="false"
     [numVisible]="5">
-    <ng-template pTemplate="item" let-item>
-        <img height="400px" [src]="item.itemImageSrc" style="width: 100%;" />
+    <ng-template pTemplate="item">
+        <img height="400px" [src]="advert.imageUrl" style="width: 100%;" />
     </ng-template>
     <ng-template pTemplate="thumbnail" let-item>
-        <div class="grid grid-nogutter justify-content-center">
-            <img height="100px" [src]="item.thumbnailImageSrc" />
+        <div class="grid grid-nogutter justify-content-center" >
+            <img height="100px" [src]="item.imageUrl" class="mr-3">
         </div>
     </ng-template>
 </p-galleria>

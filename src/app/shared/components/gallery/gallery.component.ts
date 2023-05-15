@@ -1,6 +1,8 @@
-import { Component, NgModule } from '@angular/core';
+import { Component, Input, NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { GalleriaModule } from 'primeng/galleria';
+import { AdvertInfoDto } from 'src/app/core/interfaces/advert-info';
+import { AdvertShortInfoDto } from 'src/app/core/interfaces/advert-short-info';
 
 @Component({
   selector: 'app-gallery',
@@ -8,22 +10,15 @@ import { GalleriaModule } from 'primeng/galleria';
   styleUrls: ['./gallery.component.scss']
 })
 export class GalleryComponent {
+  @Input() advert!: AdvertInfoDto
   images = [
     {
-      itemImageSrc: "https://picsum.photos/900/600",
-      thumbnailImageSrc: "https://picsum.photos/900/600"
+      imageUrl: 'https://placehold.co/600x400',
+      thumbnailImgUrl: 'https://placehold.co/600x400'
     },
     {
-      itemImageSrc: "https://picsum.photos/600/400",
-      thumbnailImageSrc: "https://picsum.photos/600/400"
-    },
-    {
-      itemImageSrc: "https://picsum.photos/900/600",
-      thumbnailImageSrc: "https://picsum.photos/200/150"
-    },
-    {
-      itemImageSrc: "https://picsum.photos/900/600",
-      thumbnailImageSrc: "https://picsum.photos/200/150"
+      imageUrl: 'https://placehold.co/900x600',
+      thumbnailImgUrl: 'https://placehold.co/600x400'
     }
   ]
 
