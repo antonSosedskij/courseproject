@@ -3,6 +3,8 @@ import { BreadcrumbModule } from 'primeng/breadcrumb';
 import { GalleryModule } from '../gallery/gallery.component';
 import { ButtonModule } from 'primeng/button';
 import { AdvertInfoDto } from 'src/app/core/interfaces/advert-info';
+import { DialogService, DynamicDialogRef } from 'primeng/dynamicdialog';
+import { PhoneDialogComponent } from '../../modals/phone-dialog/phone-dialog.component';
 
 @Component({
   selector: 'app-view-advert',
@@ -12,6 +14,8 @@ import { AdvertInfoDto } from 'src/app/core/interfaces/advert-info';
 export class ViewAdvertComponent {
 
   @Input() advert! : AdvertInfoDto;
+
+  ref!: DynamicDialogRef;
 
   breadcrumbItems = [{
     label: 'Севастополь',
@@ -23,6 +27,19 @@ export class ViewAdvertComponent {
     label: 'Музыкальные инструменты'
   },
 ]
+
+  constructor(public dialogService: DialogService, ) {
+
+  }
+
+  showPhone(){
+    this.ref = this.dialogService.open(PhoneDialogComponent, {
+      header: 'Телефон автора',
+      width: '40%',
+      contentStyle: { overflow: 'auto' },
+      baseZIndex: 10000,
+    });
+  }
 }
 
 
