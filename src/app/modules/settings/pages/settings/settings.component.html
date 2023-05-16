@@ -41,7 +41,7 @@
             Введите новый пароль (не менее 8 символов)
         </small>
     </div>
-    <button (click)="passwordReset()" type="submit">Сменить пароль</button>
+    <button (click)="passwordReset()" type="submit" [disabled]="passwordResetForm.invalid">Сменить пароль</button>
 </form>
 
 </div>
