@@ -11,11 +11,14 @@ export class AdvertsRecComponent implements OnInit{
 
   adverts!: AdvertShortInfoDto[];
 
+  isLoading: boolean = true;
+
   constructor(private advertService: AdvertService) {}
 
   ngOnInit(){
     this.advertService.getAdverts().subscribe(data => {
       this.adverts = data;
+      this.isLoading = false;
     });
   }
 }

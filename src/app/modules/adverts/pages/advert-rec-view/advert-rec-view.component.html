@@ -1,5 +1,6 @@
 <div class="container">
     <app-view-advert 
+    *ngIf="!isLoading;"
     [advert]="advert"
     >
     </app-view-advert>

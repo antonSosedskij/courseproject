@@ -1,11 +1,56 @@
 <div class="container">
     <h1>Рекомендации</h1>
-    <div class="container__card grid">
-        <app-advert-card
-         [routerLink]="['/view', advert.id]"
-         [advert]="advert" 
-         class="xl:col-6 lg:col-12" 
-         *ngFor="let advert of adverts"
-         ></app-advert-card>
-    </div>
+        <div class="container__card grid" *ngIf="!isLoading; else skeleton">
+            <app-advert-card
+            [routerLink]="['/view', advert.id]"
+            [advert]="advert"
+            class="xl:col-6 lg:col-12" 
+            *ngFor="let advert of adverts"
+            ></app-advert-card>
+        </div>
 </div>
+
+
+<ng-template #skeleton>
+    <div class="grid">
+        <div class="flex xl:col-6 lg:col-12 w-full mb-1 border-round border-1 surface-border p-2 surface-card skeleton-item">
+            <div class="flex mb-3">
+                <div>
+                    <p-skeleton width="200px" height="100%" styleClass="mb-1 mr-1"></p-skeleton>
+                </div>
+            </div>
+            <p-skeleton width="100%" height="150px"></p-skeleton>
+            <div class="mt-3 w-full">
+                <p-skeleton width="100%" height="2rem" styleClass="mb-1"></p-skeleton>
+                <p-skeleton width="100%" height="2rem" styleClass="mb-1"></p-skeleton>
+                <p-skeleton width="100%" height="2rem" styleClass="mb-1"></p-skeleton>
+            </div>
+        </div>
+        <div class="flex xl:col-6 lg:col-12 w-full mb-1 border-round border-1 surface-border p-2 surface-card skeleton-item">
+            <div class="flex mb-3">
+                <div>
+                    <p-skeleton width="200px" height="100%" styleClass="mb-1 mr-1"></p-skeleton>
+                </div>
+            </div>
+            <p-skeleton width="100%" height="150px"></p-skeleton>
+            <div class="mt-3 w-full">
+                <p-skeleton width="100%" height="2rem" styleClass="mb-1"></p-skeleton>
+                <p-skeleton width="100%" height="2rem" styleClass="mb-1"></p-skeleton>
+                <p-skeleton width="100%" height="2rem" styleClass="mb-1"></p-skeleton>
+            </div>
+        </div>
+        <div class="flex xl:col-6 lg:col-12 w-full mb-1 border-round border-1 surface-border p-2 surface-card skeleton-item">
+            <div class="flex mb-3">
+                <div>
+                    <p-skeleton width="200px" height="100%" styleClass="mb-1 mr-1"></p-skeleton>
+                </div>
+            </div>
+            <p-skeleton width="100%" height="150px"></p-skeleton>
+            <div class="mt-3 w-full">
+                <p-skeleton width="100%" height="2rem" styleClass="mb-1"></p-skeleton>
+                <p-skeleton width="100%" height="2rem" styleClass="mb-1"></p-skeleton>
+                <p-skeleton width="100%" height="2rem" styleClass="mb-1"></p-skeleton>
+            </div>
+        </div>
+    </div>
+</ng-template>

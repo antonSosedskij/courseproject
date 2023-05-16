@@ -14,13 +14,15 @@ export class AdvertRecViewComponent implements OnInit {
   advertId!: number;
   advert!: AdvertInfoDto;
 
+  isLoading: boolean = true;
+
   constructor(private advertService: AdvertService, private route: ActivatedRoute) { }
 
   ngOnInit(){
     this.advertId = this.route.snapshot.params['id']
     this.advertService.getById(this.advertId).subscribe(data => {
       this.advert = data;
-      console.log(this.advert);
+      this.isLoading = false;
     })
   }
 }
