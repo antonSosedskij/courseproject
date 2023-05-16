@@ -5,7 +5,7 @@ export interface AdvertInfoDto{
     price: number,
     imageUrl: string,
     address: string,
-    category_id: string,
+    categoryId: string,
     isActive: boolean,
     createdAt: string
 }
